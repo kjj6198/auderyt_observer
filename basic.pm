@@ -74,3 +74,30 @@ sub hello {
 }
 
 hello();
+
+## passing argument
+
+sub average {
+  $n = scalar(@_); # get total number of arguments
+  print("$n\n");
+}
+
+average(10, 20);
+
+## passing hash
+
+sub print_hash {
+  my (%hash) = @_; # @_ is a array
+  # [a, b] = arr
+
+  foreach my $key (keys %hash) {
+    my $val = $hash{$key};
+    print "$key: $val\n";
+  }
+}
+
+%hash = (
+  'name' => 'kalan',
+);
+
+print_hash(%hash);
