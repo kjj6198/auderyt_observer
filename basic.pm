@@ -101,3 +101,17 @@ sub print_hash {
 );
 
 print_hash(%hash);
+
+# state
+
+use feature 'state';
+
+sub print_count {
+  state $count = 0; # auto store
+  print "current value: $count\n";
+  $count++;
+}
+
+print_count();
+print_count();
+
