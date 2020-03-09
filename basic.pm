@@ -33,6 +33,7 @@ print "$data{'john'}\n";
 # qw
 
 @days = qw/Mon Tue Wed Thu Fri Sat Sun/;
+# ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 @weekdays = @days[3..5];
 
 print "@weekdays\n";
@@ -48,3 +49,28 @@ print "$data2{'name'}\n";
 
 @names = keys %data2;
 print "$names[0]\n";
+
+if (!exists($data{'sss'})) {
+  print "no sss exists\n";
+}
+
+## for loop
+
+@list = (2, 20, 30, 40, 50);
+
+foreach $item (@list) {
+  print "$item\n";
+}
+
+# q, qq, qx
+
+print q{abcd}."\n";
+print qq{abcd}."\n";
+
+# subroutine
+
+sub hello {
+  print "Hello\n";
+}
+
+hello();
