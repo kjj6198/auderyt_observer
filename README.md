@@ -31,9 +31,17 @@ Start coding:
 2. events
 
 ## File
+
 - basic.pm: learning how basic perl works.
 - auderyt_observer.pm: a very rough implementation for observing auderyt activity.
 
 ## How to use?
 
 run `perl auderyt_observer.pm` and install related dependency by cpan.
+
+## TODOs
+
+- 模組化 + 更慣用的寫法寫 perl
+- 優化文字輸出
+- avatar to ascii
+- realtime update
