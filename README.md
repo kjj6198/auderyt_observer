@@ -13,3 +13,8 @@ Start coding:
 - array operation
 - format
 - print to terminal
+
+---
+
+1. profile (name, profile_link, bio, follower)
+2. events

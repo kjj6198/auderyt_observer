@@ -88,7 +88,7 @@ average(10, 20);
 
 sub print_hash {
   my (%hash) = @_; # @_ is a array
-  # [a, b] = arr
+  # [a, b] = arr[0], arr[1]
 
   foreach my $key (keys %hash) {
     my $val = $hash{$key};
@@ -115,3 +115,14 @@ sub print_count {
 print_count();
 print_count();
 
+
+# 
+
+use List::MoreUtils;
+
+my @foo = ('a', 'b', 'c');
+
+my $index = List::MoreUtils::first_index {$_ eq 'g'} @foo;
+# @foo.indexOf((val) => val === 'g');
+
+print "$index"
