@@ -29,3 +29,11 @@ Start coding:
 
 1. profile (name, profile_link, bio, follower)
 2. events
+
+## File
+- basic.pm: learning how basic perl works.
+- auderyt_observer.pm: a very rough implementation for observing auderyt activity.
+
+## How to use?
+
+run `perl auderyt_observer.pm` and install related dependency by cpan.
