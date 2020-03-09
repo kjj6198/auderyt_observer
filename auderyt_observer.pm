@@ -23,9 +23,8 @@ my $res = $ua->request($req);
 # json -> hash
 
 sub map_to_profile_data {
-  my ($json_str) = @_;
+  my ($json_str, @keys) = @_;
   my $res_hash = from_json($json_str);
-  my @keys = qw(html_url followers public_repos login);
   my %profile;
   
   foreach my $key (keys %$res_hash) {
@@ -38,7 +37,7 @@ sub map_to_profile_data {
   return %profile;
 }
 
-my %profile = map_to_profile_data($res->content);
+my %profile = map_to_profile_data($res->content, qw(html_url followers public_repos login));
 
 sub color_string {
   my ($color, $str) = @_;
@@ -47,6 +46,13 @@ sub color_string {
   print $str;
   print color('reset');
 }
+
+sub color_sprint {
+  my ($color, $str) = @_;
+
+  return colored(sprintf("%s", $str), $color); 
+}
+
 
 print("profile of: ");
 color_string("red", "$profile{'login'}\n");
@@ -59,4 +65,33 @@ color_string("red", "$profile{'public_repos'}\n");
 
 print("====================================\n");
 
+my $req2 = HTTP::Request->new(GET => 'https://api.github.com/users/audreyt/events');
+my $res2 = $ua->request($req2);
 
+
+# hash, keys
+sub pick { 
+  my ($obj, @keys) = @_;
+  my %hash;
+  foreach my $key (keys %$obj) {
+    my $idx = List::MoreUtils::first_index {$_ eq $key } @keys;
+    if ($idx != -1){
+      $hash{$key} = $obj->{$key};
+    } 
+  }
+  return $obj;
+}
+
+sub map_array_to_data {
+  my ($str, @keys) = @_;
+  my $response = from_json($str); # array 
+  # type, repo, created
+  return $response;
+}
+
+my $events = map_array_to_data($res2->content, qw(type repo created));
+color_string("bold blue", "Name                                                                                                  Type         created_at\n");
+foreach my $event (@$events) {
+  printf("%s %s                                             %s       %s", color_sprint("bold magenta", $event->{'repo'}->{'name'}), $event->{'repo'}->{'url'}, $event->{'type'}, $event->{'created_at'});
+  print("\n");
+}
