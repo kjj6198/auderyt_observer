@@ -12,6 +12,11 @@ my $ua = LWP::UserAgent->new(
   protocols_allowed => ['https'],
 );
 
+my @api_list = (
+  "https://api.github.com/users/audreyt",
+  "https://api.github.com/users/audreyt/events",
+);
+
 my $req = HTTP::Request->new(GET => 'https://api.github.com/users/audreyt');
 my $res = $ua->request($req);
 
@@ -40,8 +45,18 @@ sub color_string {
 
   print color($color);
   print $str;
-  print "\n";
   print color('reset');
 }
 
-color_string("bold blue", "profile of: ");
+print("profile of: ");
+color_string("red", "$profile{'login'}\n");
+print("Profile Link: ");
+color_string("red", "$profile{'html_url'}\n");
+print("Followers: ");
+color_string("red", "$profile{'followers'}\n");
+print("Pulic Repos: ");
+color_string("red", "$profile{'public_repos'}\n");
+
+print("====================================\n");
+
+
