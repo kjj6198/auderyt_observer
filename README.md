@@ -5,7 +5,7 @@
 ## Why
 
 最近因為武漢肺炎以及日本採訪的關係，唐鳳的聲名大噪，除了感到相當開心之外，也想要從另外一個角度看看唐鳳在「程式碼」這一塊做了哪些事情。
-因此做了這個 repo，但只用短短幾個小時的時間學 perl 真的讓我吃不消啊 QQ。
+因此做了這個 repo，但只用短短幾個小時的時間學 perl 真的讓我吃不消啊 QQ。
 
 ## Goal
 
@@ -44,4 +44,4 @@ run `perl auderyt_observer.pm` and install related dependency by cpan.
 - 模組化 + 更慣用的寫法寫 perl
 - 優化文字輸出
 - avatar to ascii
-- realtime update
+- realtime update
