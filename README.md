@@ -47,3 +47,8 @@ run `perl auderyt_observer.pm` and install related dependency by cpan.
 - 優化文字輸出
 - avatar to ascii
 - realtime update
+
+
+## Resources
+
+- [String Matching](https://perldoc.perl.org/perlrequick.html#Search-and-replace)
