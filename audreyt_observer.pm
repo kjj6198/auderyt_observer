@@ -92,6 +92,9 @@ sub map_array_to_data {
 my $events = map_array_to_data($res2->content, qw(type repo created));
 color_string("bold blue", "Name                                                                                                  Type         created_at\n");
 foreach my $event (@$events) {
-  printf("%s %s                                             %s       %s", color_sprint("bold magenta", $event->{'repo'}->{'name'}), $event->{'repo'}->{'url'}, $event->{'type'}, $event->{'created_at'});
+  my $link = $event->{'repo'}->{'url'};
+  $link =~ s/repos\/|api.//g;
+  
+  printf("%s %s                                             %s       %s", color_sprint("bold magenta", $event->{'repo'}->{'name'}), $link, $event->{'type'}, $event->{'created_at'});
   print("\n");
 }
